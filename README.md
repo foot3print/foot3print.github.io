@@ -1,1 +1,0 @@
-# foot3print.github.io
