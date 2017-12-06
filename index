@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DBUS Cheat Sheet</title>
+<meta name='msvalidate.01' content='E44DCBC369E3C3527E9DD8CCA28D3680' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<meta charset='UTF-8'> 
+<script type="text/javascript">
+//<![CDATA[
+window.__cfRocketOptions = {byc:0,p:0,petok:"83ee7b20bf00bec33f9d4035a2c1a281fe86e3ed-1512486876-1800"};
+//]]>
+</script>
+<script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/ddc5a536/cloudflare-static/rocket.min.js"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7e5625">
+<meta name="theme-color" content="#f0e8e8"><link rel='canonical' href='https://lzone.de/cheat-sheet/DBUS'/>
+<meta property="og:title" content="DBUS Cheat Sheet">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lzone.de/cheat-sheet/DBUS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@larswindolf">
+<meta name="twitter:title" content="DBUS Cheat Sheet">
+<!--<meta name="twitter:description" content="Small article description.">-->
+<link rel='stylesheet' type='text/css' href='/css/main.css'/>
+<script type="text/rocketscript" data-rocketsrc="//lzone.de/js/jquery-2.1.1.min.js"></script>
+<script data-cfasync='false' type='application/javascript' src='//lzone.de/js/showdown.min.js'></script>
+<link rel='search' type='application/opensearchdescription+xml' title='LZone' href='/opensearch.xml'>
+<script async data-rocketsrc="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID" type="text/rocketscript"></script>
+<script type="text/rocketscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5241348-3');
+</script>
+</head>
+<body>
+	<div id='categories'></div>
+	<div id='topics'></div>
+	<div id='slides' class='media'></div>
+<a class='menu cheatsheets' href='/cheat-sheet/'>Cheat Sheets</a><div id='header'><a class='menu lesser' href='/blog/'>Blog</a><a class='menu lesser' href='/polscan/'>Polscan</a><a class='menu lesser' href='/webscan'>WebScan</a><form id='searchbar' onSubmit='document.location.href="/search/"+encodeURIComponent(document.getElementById("query").value);return false;'/><input  type='text' id='query' value=''/></form></div><script type="text/rocketscript">var markdown = 0;</script><script type="text/rocketscript">var multistatus = 0;</script><div id='main' class='sheet'><script type="text/rocketscript">var topic = 'DBUS';</script><script type="text/rocketscript">markdown = 1;</script><script async data-rocketsrc="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="text/rocketscript"></script>
+<!-- Top Memcache -->
+<ins class='adsbygoogle'
+     style='display:inline-block;width:728px;height:90px;margin-bottom:12px;'
+     data-ad-client='ca-pub-3885525830723411'
+     data-ad-slot='4912570252'></ins>
+<script type="text/rocketscript">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> <h1>DBUS Cheat Sheet</h1><div class='content'>Loading...</div><div id="disqus_thread"><a class='disqus' href='#' onclick='disqus();return false;'>Comment on Disqus</a></div>
+<script type="text/rocketscript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'lzone';
+    var disqus_loaded = false;
+    var disqus_url = document.location.href;
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    function disqus() {
+	if(disqus_loaded)
+	    return;
+
+	disqus_loaded = true;
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div><div class='videos media'></div></div><script type="text/rocketscript">
+var sheets = undefined;
+
+$(document).ready(function() {
+	var category = 'DevOps Linux';
+	var topic = unescape(document.location.href.split(/\//).pop());
+
+	if(multistatus === 1) {
+		$.getJSON('/multi_status.json', function(data) {
+			$('#multistatus').html('<p><small>Below you find services whose status pages indicate current problems. Check the table below for more infos.</small></p> <div class="statuscloud"/> <h'+'3>Service Outage Details</h'+'3> <p><small>Last update '+new Date(data.time*1000).toLocaleString()+'</small></p><table class="multistatus"><tbody/></table>');
+			$.each(data.aggregators.sort(function(a,b) {
+				return a.name.toLowerCase() > b.name.toLowerCase();
+			}), function(i, a) {
+				if(a.results.length === 0)
+					$('#multistatus div.statuscloud').append('<span style="background:#afa">'+a.name+'</span> ');
+				else
+					$('#multistatus div.statuscloud').append('<span style="background:#faa">'+a.name+' ('+a.results.length+')</span> ');
+			});
+			$.each(data.aggregators.sort(function(a,b) {
+				var rlena = a.results.length;
+				var rlenb = b.results.length;
+				return rlena < rlenb;
+			}), function(i, a) {
+				if(a.results.length > 0) {
+					var name = '<td class="name" rowspan="'+(a.results.length)+'"><a href="'+a.url+'">'+a.name+'</a></td>';
+					$('#multistatus table.multistatus').append(
+						a.results.map(function(obj) {
+							var tmp = name;
+							if(name != "")
+								name = "";
+							return "<tr>"+tmp+"<td>"+obj.time+"</td><td>"+obj.title+"</td><td>"+(obj.description !== undefined?obj.description:'')+"</td></tr>";
+						}).join('')
+					);
+				}
+			});
+		})
+		.fail(function() {
+			$('#multistatus').html('Failed to fetch status JSON :-(');
+		});
+	}
+
+	if(markdown === 1) {
+ 		var base = 'cheat-sheet';
+ 		if(document.location.href.match(/visual-ops/))
+ 			base = 'visual-ops';
+ 		$.get('/'+base+'/'+topic+'.md', function(data) {
+			var converter = new showdown.Converter();
+			converter.setOption('tables', true);
+			var html = converter.makeHtml(data);
+			html = addMedia(html);
+			$('#main .content').html(html);
+			$('#main h1').append("<a class='edit' href='https://github.com/lwindolf/lzone-cheat-sheets/edit/master/cheat-sheets/"+topic+".md' target='new'>Edit Cheat Sheet</a>");
+			addToc();
+		})
+		.fail(function() {
+			$('h1').html('Sorry cheat sheet '+topic+' not found!');
+		});
+	}
+
+	$.getJSON('/index.json', function(data) {
+		sheets = data;
+
+		// First resolve category this sheet belongs too
+		$.each(sheets, function(name, topics) {
+			if(topics.indexOf(topic) !== -1) {
+				category = name;
+				return;
+			}
+		});
+
+		$.each(Object.keys(sheets).sort(), function(i, name) {
+			$('#categories').append('<div category="'+name+'" class="category">'+name+'</div>');
+		});
+		load_category(category);
+		$('.category').click(function() {
+			$('.category').removeClass('current');
+			load_category($(this).attr('category'));
+			return false;
+		});
+		$('.topic[topic="'+topic+'"]').addClass('current');
+	});
+});
+
+function addSlide(id, text) {
+	if ($('#slides').is(':empty')){
+		$('#slides').append('<b>Slides</b><br/><br/>');
+	}
+	var html = '<div><div>'+text+'</div><iframe src="//www.slideshare.net/slideshow/embed_code/key/'+id+'" width="340" height="290" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe></div>';
+	$('#slides').append(html);
+}
+
+function addJSFiddle(id) {
+	return '<iframe width="100%" height="1000" src="//jsfiddle.net/lwindolf/'+id+'/embedded/result,js" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>';
+}
+
+function addMedia(data) {
+	var interesting = [];
+
+	// Handle sheet cheat references
+	data = data.replace(/<\?add topic=['\"]([^'\"]+)['\"]\?>/g, function(a, b) {
+		interesting.push(b);
+		return "<span class='related'><a href='"+b+"'>"+b+"</a></span>";
+	});
+
+	// Handle slides
+	data = data.replace(/<\?slideshare,([^,]+),([^>]+)\?>/g, function(a, id, text) {
+		addSlide(id, text);
+		return "";
+	});
+
+	// Handle jsfiddle
+	data = data.replace(/\{jsfiddle:([^}]+)}/g, function(a, id) {
+		return addJSFiddle(id);
+	});
+
+	$.each(interesting, function(i, b) {
+		$('.topic[topic="'+b+'"]').addClass('interesting');
+	});
+	return data;
+}
+
+function addToc() {
+	var sections = $("h2, h3, h4, h5, h6");
+	if(sections.length < 5)
+		return;
+	sections.each(function(i, h) {
+		//console.log(h);
+		//console.log("<a href='"+$(h)+"'>"+$(h).text()+"</a>");
+	});
+}
+
+function load_category(c) {
+	$('#topics').empty();
+	$('.category[category="'+c+'"]').addClass('current');
+	$.each(sheets[c].sort(), function(i, name) {
+		var base = 'cheat-sheet';
+		if(-1 !== c.indexOf('Examples'))
+			base = 'examples';
+		if(-1 !== c.indexOf('visual-ops'))
+			base = 'visual-ops';
+		var link = "/"+base+'/'+name;
+		// External links have format <name>,<link>
+		if(-1 !== name.indexOf(",")) {
+			var tmp = name.split(/,/);
+			name = tmp[0];
+			link = tmp[1];
+		}
+		$('#topics').append('<div topic="'+name+'" class="topic"><a href="'+link+'">'+name+'</a></div>');
+	});
+}
+
+var defaultText = "Search Cheat Sheets...";
+var searchBox = document.getElementById("query");
+
+//default text after load
+searchBox.value = defaultText;
+searchBox.style.color = '#ccc';
+
+//on focus behaviour
+searchBox.onfocus = function() {
+    if (this.value == defaultText) {//clear text field
+        this.value = '';
+	this.style.color = 'white';
+    }
+}
+
+//on blur behaviour
+searchBox.onblur = function() {
+    if (this.value == "") {//restore default text
+        this.value = defaultText;
+	this.style.color = '#ccc';
+    }
+}
+
+</script>
+</body>
+</html>
+<link rel='stylesheet' id='twentythirteen-fonts-css' href='//fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C300italic%2C400italic%2C700italic%7CBitter%3A400%2C700%7COpen+Sans+Condensed%3A300%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all'>	
